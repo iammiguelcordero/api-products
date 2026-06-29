@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: api-products
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/store
+    username: postgres
+    password: 12345678
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/products/v1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+
+  health:
+    db:
+      enabled: true
