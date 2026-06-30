@@ -18,4 +18,9 @@ public class ProductService {
     public List<Product> findAll() {
         return repository.findAll();
     }
+
+    public Product findById(Integer id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+    }
 }
